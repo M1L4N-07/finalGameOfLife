@@ -92,6 +92,45 @@ function killAllToadstools() {
     toadstoolArr = []
 }
 
+function killAll() {
+    
+}
+
+/*function checkCreatures() {
+    let creatureCounter = 0
+
+    for (let i = 0; i < grassArr.length; i++) {
+        let grassObj = grassArr[i]
+        
+        if (matrix[grassObj.y][grassObj.x] != 0) creatureCounter++
+    }
+
+    for (let i = 0; i < grazerArr.length; i++) {
+        let grazerObj = grazerArr[i]
+        
+        if (matrix[grazerObj.y][grazerObj.x] != 0) creatureCounter++
+    }
+
+    for (let i = 0; i < carnivoreArr.length; i++) {
+        let carnivoreObj = carnivoreArr[i]
+        
+        if (matrix[carnivoreObj.y][carnivoreObj.x] != 0) creatureCounter++
+    }
+
+    for (let i = 0; i < toadstoolArr.length; i++) {
+        let toadstoolObj = toadstoolArr[i]
+        if (matrix[toadstoolObj.y][toadstoolObj.x] != 0) creatureCounter++
+    }
+
+    return creatureCounter
+}*/
+
+function checkCreatures() {
+    let creatureCounter = grassArr.length + grazerArr.length + carnivoreArr.length
+
+    return creatureCounter
+}
+
 function newGame() {
     matrix = randMatrix(50, 50)
 
@@ -146,6 +185,7 @@ function updateGame() {
     
     io.emit("send matrix", matrix)
     io.emit("isRaining", isRaining)
+    io.emit("checkCreatures", checkCreatures())
 }
 
 io.on("connection", function (socket) {

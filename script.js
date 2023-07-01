@@ -14,6 +14,10 @@ function main() {
             document.getElementById("isRaining").innerHTML = "it is not raining"
         }
     })
+    socket.on("checkCreatures", (inputCreatureCounter) => {
+        localCreatureCounter = inputCreatureCounter
+        document.getElementById("creatureCounter").innerHTML = localCreatureCounter
+    })
 
     document.getElementById("newGame"          ).addEventListener("click", function () { socket.emit("newGame") })
     document.getElementById("killAllGrasses"   ).addEventListener("click", function () { socket.emit("killAllGrasses") })
