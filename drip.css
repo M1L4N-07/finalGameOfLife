@@ -74,6 +74,7 @@ canvas {
 }
 
 #isRaining,
+#isParched,
 #visualCreatureCounter {
     margin-top: 10px;
     color: #7d8590;

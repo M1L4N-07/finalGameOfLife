@@ -1,6 +1,7 @@
 let side = 10
 let matrixSize = 50
 localIsRaining = false
+localIsParched = false
 const socket = io()
 
 function main() {
@@ -12,6 +13,14 @@ function main() {
             document.getElementById("isRaining").innerHTML = "it is raining"
         } else {
             document.getElementById("isRaining").innerHTML = "it is not raining"
+        }
+    })
+    socket.on("isParched", (inputIsParched) => {
+        localIsParched = inputIsParched
+        if (localIsParched == true) {
+            document.getElementById("isParched").innerHTML = "it is parched"
+        } else {
+            document.getElementById("isParched").innerHTML = "it is not parched"
         }
     })
     socket.on("checkCreatures", (inputCreatureCounter) => {
