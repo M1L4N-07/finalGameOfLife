@@ -3,22 +3,64 @@
 
 <head>
     <title>Game of Life</title>
-    <h1>The Game of Life</h1>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f6f8fa;
+            text-align: center;
+            margin: 20px;
+            color: #24292e;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin-bottom: 10px;
+            background-color: #2ea44f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background-color: #22863a;
+        }
+
+        .gamefield {
+            margin-top: 20px;
+        }
+
+        #isRaining,
+        #visualCreatureCounter {
+            margin-top: 10px;
+            color: #586069;
+        }
+    </style>
     <meta charset="utf8">
 </head>
 
 <body>
-    <br />
-    <button id="newGame">Clear the gamefield and begin a new game</button>
+    <h1>The Game of Life</h1>
+    <button id="newGame">Clear the game field and begin a new game</button>
+    <br>
     <button id="killAllGrasses">Kill every grass cell</button>
     <button id="killAllGrazers">Kill every grazer cell</button>
     <button id="killAllCarnivores">Kill every carnivore cell</button>
     <button id="killAllToadstools">Kill every toadstool cell</button>
-    <br />
-    <br />
+    <br>
+    <br>
     <div id="isRaining"></div>
-    <div>creatureCounter (without toadstools): <span id="creatureCounter"></span></div>
-    <br />
+    <div id="visualCreatureCounter">Creature Counter (without toadstools): <span id="creatureCounter"></span></div>
+    <br>
     <div class="gamefield">
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
