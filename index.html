@@ -8,13 +8,17 @@
 </head>
 
 <body>
+    <br />
     <button id="newGame">Clear the gamefield and begin a new game</button>
     <button id="killAllGrasses">Kill every grass cell</button>
     <button id="killAllGrazers">Kill every grazer cell</button>
     <button id="killAllCarnivores">Kill every carnivore cell</button>
     <button id="killAllToadstools">Kill every toadstool cell</button>
+    <br />
+    <br />
     <div id="isRaining"></div>
-    <div id="creatureCounter"></div>
+    <div>creatureCounter (without toadstools): <span id="creatureCounter"></span></div>
+    <br />
     <div class="gamefield">
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
