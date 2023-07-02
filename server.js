@@ -18,6 +18,7 @@ app.get("./", function (req, res) {
 
 matrix = randMatrix(50, 50)
 isRaining = false
+isParched = false
 let interval = 200
 let port = 3000
 
@@ -156,6 +157,7 @@ function updateGame() {
     
     io.emit("send matrix", matrix)
     io.emit("isRaining", isRaining)
+    io.emit("isParched", isParched)
     io.emit("checkCreatures", checkCreatures())
 }
 
@@ -163,6 +165,7 @@ io.on("connection", function (socket) {
     console.log("client ws connection established...")
     io.emit("send matrix", matrix)
     io.emit("isRaining", isRaining)
+    io.emit("isParched", isParched)
 
     socket.on("killAllGrasses", function (data) {
         console.log("client clicked killAllGrasses-button...")
@@ -206,6 +209,14 @@ setInterval(function () {
     console.log("isRaining: " + isRaining)
     io.on("connection", (socket) => {
         socket.emit("isRaining", isRaining)
+    })
+}, 8000)
+
+setInterval(function () {
+    isParched = !isParched
+    console.log("isParched: " + isParched)
+    io.on("connection", (socket) => {
+        socket.emit("isParched", isParched)
     })
 }, 8000)
 
