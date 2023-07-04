@@ -88,7 +88,7 @@ module.exports = class Carnivores extends LivingCreature {
     }
 
     mul() {
-        if (isRaining && this.multiply >= 12) {
+        if (isRaining && this.multiply >= 4) {
             let emptyCells = this.chooseCell(0)
             let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
             if (theChosenField) {
@@ -97,7 +97,7 @@ module.exports = class Carnivores extends LivingCreature {
                 matrix[theChosenField[1]][theChosenField[0]] = 3
             }
             this.multiply = 0
-        } else if (isParched && this.multiply >= 3) {
+        } else if (isParched && this.multiply >= 1) {
             let emptyCells = this.chooseCell(0)
             let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
             if (theChosenField) {
@@ -106,7 +106,7 @@ module.exports = class Carnivores extends LivingCreature {
                 matrix[theChosenField[1]][theChosenField[0]] = 3
             }
             this.multiply = 0
-        } else if (this.multiply >= 6) {
+        } else if (this.multiply >= 2) {
             let emptyCells = this.chooseCell(0)
             let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
             if (theChosenField) {
