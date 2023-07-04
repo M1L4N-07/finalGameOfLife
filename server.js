@@ -213,12 +213,14 @@ setInterval(function () {
 }, 8000)
 
 setInterval(function () {
-    isParched = !isParched
-    console.log("isParched: " + isParched)
-    io.on("connection", (socket) => {
-        socket.emit("isParched", isParched)
-    })
-}, 8000)
+    if (!isRaining) {
+        isParched = !isParched
+        console.log("isParched: " + isParched)
+        io.on("connection", (socket) => {
+            socket.emit("isParched", isParched)
+        })
+    }
+}, 4000)
 
 httpServer.listen(port, function () {
     console.log("Server läuft auf Port 3000...")
