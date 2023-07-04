@@ -16,7 +16,7 @@ module.exports = class Toadstool extends LivingCreature {
     }
 
     eat() {
-        if (!isRainin && !isParched) {
+        if (!isRaining && !isParched) {
             let cells = this.directions
             for (let i in cells) {
                 i = parseInt(i);
