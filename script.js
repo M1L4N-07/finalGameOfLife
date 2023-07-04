@@ -49,24 +49,33 @@ function drawMatrix(matrix) {
             } else if (matrix[y][x] == 1) {
                 if (localIsRaining == true) {
                     fill("forestgreen")
-                } else {
+                } else if (localIsParched == true) {
+                    fill("darkolivegreen")
+                }
+                else {
                     fill("lawngreen")
                 }
             } else if (matrix[y][x] == 2) {
                 if (localIsRaining == true) {
                     fill("goldenrod")
+                } else if (localIsParched == true) {
+                    fill("palegoldenrod")
                 } else {
                     fill("gold")
                 }
             } else if (matrix[y][x] == 3) {
                 if (localIsRaining == true) {
                     fill("darkred")
+                } else if (localIsParched == true) {
+                    fill("brown")
                 } else {
                     fill("red")
                 }
             } else if (matrix[y][x] == 4) {
                 if (localIsRaining == true) {
                     fill("hotpink")
+                } else if (localIsParched == true) {
+                    fill("peachpuff")
                 } else {
                     fill("pink")
                 }
