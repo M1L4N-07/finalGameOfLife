@@ -99,18 +99,24 @@ module.exports = class Grazer extends LivingCreature {
                 }
                 this.multiply = 0
             }
-        } else {
-            if (this.multiply >= 6) {
-                let emptyCells = this.chooseCell(0)
-                let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
-                if (theChosenField) {
-                    let newGrazerObj = new Grazer(theChosenField[0], theChosenField[1])
-                    grazerArr.push(newGrazerObj)
-                    matrix[theChosenField[1]][theChosenField[0]] = 2
-                }
-                this.multiply = 0
+        } else if (isParched && this.multiply >= 12) {
+            let emptyCells = this.chooseCell(0)
+            let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+            if (theChosenField) {
+                let newGrazerObj = new Grazer(theChosenField[0], theChosenField[1])
+                grazerArr.push(newGrazerObj)
+                matrix[theChosenField[1]][theChosenField[0]] = 2
             }
+            this.multiply = 0
+        } else if (this.multiply >= 6) {
+            let emptyCells = this.chooseCell(0)
+            let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+            if (theChosenField) {
+                let newGrazerObj = new Grazer(theChosenField[0], theChosenField[1])
+                grazerArr.push(newGrazerObj)
+                matrix[theChosenField[1]][theChosenField[0]] = 2
+            }
+            this.multiply = 0
         }
-        
     }
 }
