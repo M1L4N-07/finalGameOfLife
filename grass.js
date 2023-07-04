@@ -16,19 +16,25 @@ module.exports = class Grass extends LivingCreature {
     }
     mul() {
         this.multiply++
-        if (isRaining) {
-            if (this.multiply >= 3) {
-                let emptyCells = this.chooseCell(0)
-                let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
-                if (theChosenField) {
-                    let newGrassObj = new Grass(theChosenField[0], theChosenField[1])
-                    grassArr.push(newGrassObj)
-                    matrix[theChosenField[1]][theChosenField[0]] = 1
-                }
-                this.multiply = 0
+        if (isRaining && this.multiply >= 3) {
+            let emptyCells = this.chooseCell(0)
+            let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+            if (theChosenField) {
+                let newGrassObj = new Grass(theChosenField[0], theChosenField[1])
+                grassArr.push(newGrassObj)
+                matrix[theChosenField[1]][theChosenField[0]] = 1
             }
-        }
-        else if (this.multiply >= 6) {
+            this.multiply = 0
+        } else if (isParched && this.multiply >= 12) {
+            let emptyCells = this.chooseCell(0)
+            let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+            if (theChosenField) {
+                let newGrassObj = new Grass(theChosenField[0], theChosenField[1])
+                grassArr.push(newGrassObj)
+                matrix[theChosenField[1]][theChosenField[0]] = 1
+            }
+            this.multiply = 0
+        } else if (this.multiply >= 6) {
             let emptyCells = this.chooseCell(0)
             let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
             if (theChosenField) {
