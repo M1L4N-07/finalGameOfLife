@@ -206,9 +206,12 @@ updateGame()
 
 setInterval(function () {
     isRaining = !isRaining
+    isParched = !isParched
     console.log("isRaining: " + isRaining)
+    console.log("isParched: " + isParched)
     io.on("connection", (socket) => {
         socket.emit("isRaining", isRaining)
+        socket.emit("isParched", isParched)
     })
 }, 8000)
 
