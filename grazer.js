@@ -14,22 +14,22 @@ module.exports = class Grazer extends LivingCreature {
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
-            [this.x    , this.y - 1],
+            [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
-            [this.x - 1, this.y    ],
-            [this.x + 1, this.y    ],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
             [this.x - 1, this.y + 1],
-            [this.x    , this.y + 1],
+            [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
         ]
     }
 
     move() {
         let emptyCells = this.chooseCell(0)
-        if (this.energy > 0){
+        if (this.energy > 0) {
             if (emptyCells.length !== 0) {
                 let theChosenField = emptyCells[Math.floor(Math.random() * emptyCells.length)]
-                
+
                 let newX = theChosenField[0]
                 let newY = theChosenField[1]
 
@@ -62,7 +62,7 @@ module.exports = class Grazer extends LivingCreature {
         let grassCells = this.chooseCell(1)
         if (grassCells.length !== 0) {
             let theChosenField = grassCells[Math.floor(Math.random() * grassCells.length)]
-                
+
             let newX = theChosenField[0]
             let newY = theChosenField[1]
 
@@ -120,4 +120,3 @@ module.exports = class Grazer extends LivingCreature {
         }
     }
 }
-//...

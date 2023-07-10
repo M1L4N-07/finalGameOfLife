@@ -228,4 +228,3 @@ setInterval(function () {
 httpServer.listen(port, function () {
     console.log("Server läuft auf Port 3000...")
 })
-//...

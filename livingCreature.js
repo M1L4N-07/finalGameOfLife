@@ -24,4 +24,3 @@ module.exports = class LivingCreature {
         return found
     }
 }
-//...
