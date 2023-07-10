@@ -118,3 +118,4 @@ module.exports = class Carnivores extends LivingCreature {
         }
     }
 }
+//...

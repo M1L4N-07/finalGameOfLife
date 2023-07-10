@@ -71,3 +71,4 @@ module.exports = class Toadstool extends LivingCreature {
         }
     }
 }
+//...
